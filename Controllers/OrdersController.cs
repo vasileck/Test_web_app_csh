@@ -30,17 +30,17 @@ namespace WebApplication5.Controllers
         {
             if (string.IsNullOrEmpty(order.OrderNumber))
             {
-                order.OrderNumber = Guid.NewGuid().ToString();  // Генерация UUID, если OrderNumber не задан
+                order.OrderNumber = Guid.NewGuid().ToString();  
             }
 
             if (ModelState.IsValid)
             {
-                _context.Orders.Add(order);  // Добавление записи в базу данных
-                await _context.SaveChangesAsync();  // Сохранение изменений
-                return RedirectToAction(nameof(Index));  // Перенаправление на список заказов
+                _context.Orders.Add(order);  
+                await _context.SaveChangesAsync();  
+                return RedirectToAction(nameof(Index));  
             }
 
-            return View(order);  // Возврат представления с моделью, если валидация не пройдена
+            return View(order);  
         }
 
         public IActionResult Details(int id)
