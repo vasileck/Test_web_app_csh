@@ -1,0 +1,52 @@
+﻿@model WebApplication5.Models.Order
+
+<h2>Создать новый заказ</h2>
+
+
+
+<div class="mb-3">
+    <a asp-controller="Orders" asp-action="Index" class="btn btn-secondary">
+        Назад
+    </a>
+</div>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Город отправителя</label>
+        <input asp-for="SenderCity" class="form-control" required />
+        <span asp-validation-for="SenderCity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Адрес отправителя</label>
+        <input asp-for="SenderAddress" class="form-control" required />
+        <span asp-validation-for="SenderAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Город получателя</label>
+        <input asp-for="RecipientCity" class="form-control" required />
+        <span asp-validation-for="RecipientCity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Адрес получателя</label>
+        <input asp-for="RecipientAddress" class="form-control" required />
+        <span asp-validation-for="RecipientAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Вес груза(кг)</label>
+        <input asp-for="CargoWeight" class="form-control" type="number" step="0.01" required />
+        <span asp-validation-for="CargoWeight" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Дата забора груза</label>
+        <input asp-for="PickupDate" class="form-control" type="date" id="pickupDate" required />
+        <span asp-validation-for="PickupDate" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Создать заказ</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

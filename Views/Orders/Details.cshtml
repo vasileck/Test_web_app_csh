@@ -1,0 +1,34 @@
+﻿@model WebApplication5.Models.Order
+
+<h2>Детали заказа</h2>
+
+<div>
+    <label>ID заказа:</label>
+    <p>@Model.OrderNumber</p>
+</div>
+<div class="form-group">
+    <label>Город отправителя:</label>
+    <p>@Model.SenderCity</p>
+</div>
+<div class="form-group">
+    <label>Адрес отправителя:</label>
+    <p>@Model.SenderAddress</p>
+</div>
+<div class="form-group">
+    <label>Город получателя:</label>
+    <p>@Model.RecipientCity</p>
+</div>
+<div class="form-group">
+    <label>Адрес получателя:</label>
+    <p>@Model.RecipientAddress</p>
+</div>
+<div class="form-group">
+    <label>Вес груза:</label>
+    <p>@Model.CargoWeight кг</p>
+</div>
+<div class="form-group">
+    <label>Дата забора груза:</label>
+    <p>@Model.PickupDate.ToString("dd.MM.yyyy")</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Назад к списку</a>
